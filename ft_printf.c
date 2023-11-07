@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/07 15:58:28 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:44:22 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	while (s[i] != '\0')
 	{
-		if (s[i] != '%')
+		while (s[i] != '%')
 			write(1, &s[i], 1);
 		if (s[i] == '%')
 			i++;
@@ -43,7 +43,7 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
-	ft_printf("hello world %dn", 108982);
-	ft_printf("hello world %d", 108982);
+	ft_printf("hello world %d\n", 108982);
+	printf("hello world %d", 108982);
 	return (0);
 }
