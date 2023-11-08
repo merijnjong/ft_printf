@@ -6,18 +6,18 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:11:15 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/07 17:46:28 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/08 12:59:11 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-static int	ft_putchar(char c)
+void	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
 }
 
-static int	*ft_putstr(char *s)
+char	*ft_putstr(char *s)
 {
 	int	i;
 
@@ -27,10 +27,10 @@ static int	*ft_putstr(char *s)
 		write (1, &s[i], 1);
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
-static int	ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ static int	ft_strlen(char *s)
 	return (i);
 }
 
-static int	ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 	{
