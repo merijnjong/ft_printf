@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/08 13:22:31 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:58:51 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int	ft_printf2(char specifier, va_list args)
 {
 	if (specifier == 'c')
-		ft_putchar(va_arg(args, int));
+		ft_printc(va_arg(args, int));
 	else if (specifier == 's')
-		ft_putstr(va_arg(args, char *));
-	else if (specifier == 'd')
-		ft_putnbr(va_arg(args, int));
+		ft_prints(va_arg(args, char *));
+	else if (specifier == 'd' || specifier == 'i')
+		ft_printd(va_arg(args, int));
+	else if (specifier == 'x')
+		ft_printx_lo(va_arg(args, unsigned int));
+	else if (specifier == 'X')
+		ft_printx_up(va_arg(args, unsigned int));
 	return (0);
 }
 
@@ -49,7 +53,8 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
-	ft_printf("Hello, %s the time is %d. Don't you like the letter %c?\n", "John", 1230, 'c');
-	ft_printf("Hello, %s the time is %d. Don't you like the letter %c?\n", "John", 1230, 'c');
+	// ft_printf("Hello, %s the time is %d. Don't you like the letter %c?\n", "John", 1230, 'c');
+	ft_printf("Hello, %d\n", 05);
+	printf("Hello, %d", 05);
 	return (0);
 }

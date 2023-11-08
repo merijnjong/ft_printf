@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:51:57 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/07 15:13:49 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:31:50 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *s, ...);
-void	ft_putchar(char c);
-char	*ft_putstr(char *s);
+void	ft_printc(char c);
+char	*ft_prints(char *s);
 int		ft_strlen(char *s);
-void	ft_putnbr(int n);
+void	ft_printd(int n);
+void	ft_printx_lo(long n);
+void	ft_printx_up(long n);
 
 #endif

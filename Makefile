@@ -1,4 +1,4 @@
-sourcefiles = 	ft_printf.c ft_sidefunctions.c
+sourcefiles = 	ft_printf.c ft_printfunctions.c ft_printx.c
 
 objects =		$(sourcefiles:.c=.o)
 

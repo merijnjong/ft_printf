@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:44:11 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/07 18:18:44 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/08 16:35:34 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ int	ft_printf(const char *s, ...)
 	while (*s != '\0')
 	{
 		if (*s == '%')
-			count += print_format(*(s++), args);
+		{
+			s++;
+			count += print_format(*s, args);
+		}
 		else
 			count += write(1, s, 1);
 		s++;
@@ -90,7 +93,7 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
-	ft_printf("hello world %d\n", 108982);
-	printf("hello world %d", 108982);
+	ft_printf("hello world %x\n", 108982);
+	printf("hello world %x", 108982);
 	return (0);
 }
