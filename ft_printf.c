@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/08 17:58:51 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:05:55 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_printf2(char specifier, va_list args)
 		ft_printx_lo(va_arg(args, unsigned int));
 	else if (specifier == 'X')
 		ft_printx_up(va_arg(args, unsigned int));
+	else if (specifier == 'u')
+		ft_printu(va_arg(args, unsigned int));
 	return (0);
 }
 
@@ -54,7 +56,7 @@ int	ft_printf(const char *s, ...)
 int	main(void)
 {
 	// ft_printf("Hello, %s the time is %d. Don't you like the letter %c?\n", "John", 1230, 'c');
-	ft_printf("Hello, %d\n", 05);
-	printf("Hello, %d", 05);
+	ft_printf("Hello, %u\n", -50);
+	printf("Hello, %u", -50);
 	return (0);
 }
