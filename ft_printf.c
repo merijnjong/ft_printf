@@ -6,31 +6,34 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/08 18:14:00 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/09 14:34:25 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "ft_printf.h"
 
 int	ft_printf2(char specifier, va_list args)
 {
+	int	chars;
+
+	chars = 0;
 	if (specifier == 'c')
-		ft_printc(va_arg(args, int));
+		chars += ft_printc(va_arg(args, int));
 	else if (specifier == 's')
-		ft_prints(va_arg(args, char *));
+		chars += ft_prints(va_arg(args, char *));
 	else if (specifier == 'd' || specifier == 'i')
-		ft_printd(va_arg(args, int));
+		chars += ft_printd(va_arg(args, int));
 	else if (specifier == 'x')
-		ft_printx_lo(va_arg(args, unsigned int));
+		chars += ft_printx_lo(va_arg(args, unsigned int));
 	else if (specifier == 'X')
-		ft_printx_up(va_arg(args, unsigned int));
+		chars += ft_printx_up(va_arg(args, unsigned int));
 	else if (specifier == 'u')
-		ft_printu(va_arg(args, unsigned int));
-	else if (specifier == 'p')
-		ft_printp(va_arg(args, void *));
+		chars += ft_printu(va_arg(args, unsigned int));
+	// else if (specifier == 'p')
+	// 	chars += ft_printp(va_arg(args, void *));
 	else if (specifier == '%')
-		ft_printc('%');
-	return (0);
+		chars += ft_printc('%');
+	return (chars);
 }
 
 int	ft_printf(const char *s, ...)
@@ -47,20 +50,19 @@ int	ft_printf(const char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			ft_printf2(*s, args);
+			chars += ft_printf2(*s, args);
 		}
 		else
-			write(1, s, 1);
+			chars += write(1, s, 1);
 		s++;
 	}
 	va_end(args);
 	return (chars);
 }
 
-int	main(void)
-{
-	// ft_printf("Hello, %s the time is %d. Don't you like the letter %c?\n", "John", 1230, 'c');
-	ft_printf("Hello %% %d how are pi, %%\n", 50);
-	printf("Hello %% %d how are pi, %%", 50);
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("Characters printed: %d\n", ft_printf("%% What %u is %d %x happening %X %s %c?\n", -5, -123456, 0, 0, "john", 'c'));
+// 	printf("Characters printed: %d\n", printf("%% What %u is %d %x happening %X %s %c?\n", -5, -123456, 0, 0, "john", 'c'));
+// 	return (0);
+// }
