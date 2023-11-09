@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 14:34:25 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:52:36 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	ft_printf2(char specifier, va_list args)
 		chars += ft_printx_up(va_arg(args, unsigned int));
 	else if (specifier == 'u')
 		chars += ft_printu(va_arg(args, unsigned int));
-	// else if (specifier == 'p')
-	// 	chars += ft_printp(va_arg(args, void *));
+	else if (specifier == 'p')
+		chars += ft_printp(va_arg(args, void *));
 	else if (specifier == '%')
 		chars += ft_printc('%');
 	return (chars);
@@ -62,7 +62,8 @@ int	ft_printf(const char *s, ...)
 
 // int	main(void)
 // {
-// 	printf("Characters printed: %d\n", ft_printf("%% What %u is %d %x happening %X %s %c?\n", -5, -123456, 0, 0, "john", 'c'));
-// 	printf("Characters printed: %d\n", printf("%% What %u is %d %x happening %X %s %c?\n", -5, -123456, 0, 0, "john", 'c'));
+// 	int *ptr = NULL;
+// 	printf("Characters printed: %d\n", ft_printf("%p\n", (void *)ptr));
+// 	printf("Characters printed: %d\n", printf("%p\n", (void *)ptr));
 // 	return (0);
 // }

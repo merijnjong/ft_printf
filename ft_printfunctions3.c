@@ -1,58 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfunctions1.c                               :+:      :+:    :+:   */
+/*   ft_printfunctions3.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:11:15 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 14:44:40 by mjong            ###   ########.fr       */
+/*   Created: 2023/11/09 14:54:55 by mjong             #+#    #+#             */
+/*   Updated: 2023/11/09 16:52:13 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printc(char c)
+int	ft_printp(void *p)
 {
-	return (write(1, &c, 1));
-}
+	unsigned long	num;
+	int				chars;
 
-int	ft_prints(char *s)
-{
-	int	chars;
-
+	num = (unsigned long)p;
 	chars = 0;
-	if (!s)
+	if (num == 0)
 	{
-		return (write(1, "(null)", 6));
+		chars += write(1, "(nil)", 5);
 	}
-	while (*s != '\0')
+	else
 	{
-		chars += ft_printc(*s);
-		s++;
+		chars += write(1, "0x", 2);
+	}
+	if (num != 0)
+	{
+		chars += ft_printp2(p);
 	}
 	return (chars);
 }
 
-int	ft_printd(int n)
+int	ft_printp2(void *p)
 {
-	int	chars;
+	char			*hex;
+	int				chars;
+	unsigned long	num;
 
+	hex = "0123456789abcdef";
 	chars = 0;
-	if (n == -2147483648)
+	num = (unsigned long)p;
+	if (num / 16 > 0)
 	{
-		chars += ft_prints("-2147483648");
-		return (chars);
+		chars += ft_printp2((void *)(num / 16));
 	}
-	if (n < 0)
-	{
-		chars += ft_printc('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		chars += ft_printd(n / 10);
-	}
-	chars += ft_printc('0' + n % 10);
+	chars += ft_printc(hex[num % 16]);
 	return (chars);
 }
