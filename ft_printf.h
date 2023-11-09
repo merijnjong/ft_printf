@@ -6,16 +6,13 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:51:57 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 16:54:20 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/09 17:06:38 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
 # include <stdarg.h>
 
 int	ft_printf(const char *s, ...);
