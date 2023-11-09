@@ -1,46 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfunctions2.c                               :+:      :+:    :+:   */
+/*   ft_printu.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 14:26:53 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 14:56:10 by mjong            ###   ########.fr       */
+/*   Created: 2023/11/09 16:59:20 by mjong             #+#    #+#             */
+/*   Updated: 2023/11/09 16:59:22 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printx_lo(long n)
-{
-	char	*hex;
-	int		chars;
-
-	hex = "0123456789abcdef";
-	chars = 0;
-	if (n / 16 > 0)
-	{
-		chars += ft_printx_lo(n / 16);
-	}
-	chars += ft_printc(hex[n % 16]);
-	return (chars);
-}
-
-int	ft_printx_up(long n)
-{
-	char	*hex;
-	int		chars;
-
-	hex = "0123456789ABCDEF";
-	chars = 0;
-	if (n / 16 > 0)
-	{
-		chars += ft_printx_up(n / 16);
-	}
-	chars += ft_printc(hex[n % 16]);
-	return (chars);
-}
 
 int	ft_printu(unsigned int n)
 {

@@ -1,38 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfunctions1.c                               :+:      :+:    :+:   */
+/*   ft_printd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:11:15 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 14:44:40 by mjong            ###   ########.fr       */
+/*   Created: 2023/11/09 16:56:01 by mjong             #+#    #+#             */
+/*   Updated: 2023/11/09 16:56:51 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printc(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_prints(char *s)
-{
-	int	chars;
-
-	chars = 0;
-	if (!s)
-	{
-		return (write(1, "(null)", 6));
-	}
-	while (*s != '\0')
-	{
-		chars += ft_printc(*s);
-		s++;
-	}
-	return (chars);
-}
 
 int	ft_printd(int n)
 {
