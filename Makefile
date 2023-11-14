@@ -1,5 +1,5 @@
-sourcefiles = 	ft_printc.c ft_printd.c ft_printf.c ft_printp.c ft_prints.c ft_prints.c \
-				ft_printu.c ft_printx_lo.c ft_printx_up.c
+sourcefiles = 	ft_printc.c ft_printd.c ft_printf.c ft_printp.c ft_prints.c ft_printu.c \
+				ft_printx_lo.c ft_printx_up.c
 
 objects =		$(sourcefiles:.c=.o)
 
