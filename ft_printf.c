@@ -6,7 +6,7 @@
 /*   By: mjong <mjong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:07 by mjong             #+#    #+#             */
-/*   Updated: 2023/11/09 16:52:36 by mjong            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:24:08 by mjong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	while (*s != '\0')
 	{
+		if (*(s + 1) == '\0')
+			return (-1);
 		if (*s == '%')
 		{
 			s++;
@@ -63,7 +65,7 @@ int	ft_printf(const char *s, ...)
 // int	main(void)
 // {
 // 	int *ptr = NULL;
-// 	printf("Characters printed: %d\n", ft_printf("%p\n", (void *)ptr));
-// 	printf("Characters printed: %d\n", printf("%p\n", (void *)ptr));
+// 	printf("Characters printed: %d\n", ft_printf("%\0\n"));
+// 	printf("Characters printed: %d\n", printf("%\0\n"));
 // 	return (0);
 // }
